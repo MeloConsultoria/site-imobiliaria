@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melo Consultoria Imobiliária · CRECI 43105-J</title>
+<meta name="description" content="Melo Consultoria Imobiliária: assessoria na compra de imóveis da Caixa com desconto, do início ao registro. Atendimento on-line e sem custo para o comprador. CRECI 43105-J.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpolyline points='14,74 14,12 50,52' stroke='%2338AAAB' stroke-width='16' fill='none'/%3E%3Cpolyline points='50,52 86,12 86,74' stroke='%23F4B6B0' stroke-width='16' fill='none'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --grafite: #50524D; --escuro: #3E3D38; --turquesa: #38AAAB; --turquesa-texto: #1D7374;
+    --rosa: #F4B6B0; --rosa-suave: #FCEBE8; --turquesa-suave: #E4F3F3; --linha: #E9E9E7; --fundo: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--escuro); background: var(--fundo); line-height: 1.6; }
+  a { color: var(--turquesa-texto); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header.topo { position: sticky; top: 0; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--linha); z-index: 10; }
+  .topo .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--escuro); }
+  .marca svg { width: 40px; height: 32px; }
+  .marca b { display: block; font-size: 20px; letter-spacing: .08em; font-weight: 800; line-height: 1; }
+  .marca small { display: block; font-size: 10px; letter-spacing: .18em; font-weight: 600; color: var(--grafite); }
+  nav a { margin-left: 22px; text-decoration: none; color: var(--escuro); font-weight: 600; font-size: 14px; }
+  nav a:hover { color: var(--turquesa-texto); }
+  @media (max-width: 720px) { nav a:not(.botao) { display: none; } }
+
+  .botao { display: inline-block; background: var(--turquesa-texto); color: #fff !important; text-decoration: none; font-weight: 700;
+    padding: 12px 22px; border-radius: 999px; font-size: 15px; }
+  .botao.claro { background: #fff; color: var(--escuro) !important; }
+  nav .botao { padding: 9px 16px; font-size: 14px; white-space: nowrap; }
+
+  .capa { background: var(--grafite); color: #fff; padding: 88px 0 96px; }
+  .capa .selo { display: inline-block; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+  .capa h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.12; margin: 20px 0 18px; font-weight: 800; max-width: 820px; }
+  .capa h1 em { font-style: normal; color: var(--rosa); }
+  .capa p { font-size: 18px; max-width: 640px; color: #ECECEA; margin: 0 0 32px; }
+  .capa .acoes { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  section { padding: 80px 0; }
+  h2 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.2; margin: 0 0 14px; font-weight: 800; color: var(--grafite); }
+  .rotulo { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--turquesa-texto); margin-bottom: 10px; }
+  .intro { font-size: 17px; max-width: 680px; margin: 0 0 40px; }
+
+  .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; counter-reset: passo; }
+  .passo { background: var(--turquesa-suave); border-radius: 16px; padding: 26px 24px; }
+  .passo::before { counter-increment: passo; content: counter(passo); display: inline-flex; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--turquesa-texto); color: #fff; font-weight: 800; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .passo h3 { margin: 0 0 6px; font-size: 18px; color: var(--grafite); }
+  .passo p { margin: 0; font-size: 15px; }
+
+  .faixa { background: var(--rosa-suave); }
+  .duas { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 820px) { .duas { grid-template-columns: 1fr; } }
+  .codigo { background: #fff; border-radius: 16px; padding: 28px; border: 1px solid var(--linha); }
+  .codigo .num { font-size: 44px; font-weight: 800; letter-spacing: .1em; color: var(--turquesa-texto); line-height: 1; margin: 8px 0 12px; }
+  ul.lista { padding-left: 20px; margin: 0; }
+  ul.lista li { margin-bottom: 8px; }
+
+  .dados { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .dado { border: 1px solid var(--linha); border-radius: 14px; padding: 20px 22px; }
+  .dado span { display: block; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--grafite); opacity: .8; }
+  .dado strong { display: block; font-size: 17px; margin-top: 4px; }
+
+  .contato { background: var(--grafite); color: #fff; }
+  .contato h2 { color: #fff; }
+  .contato .intro { color: #ECECEA; }
+  .contato a:not(.botao) { color: var(--rosa); }
+
+  .privacidade { font-size: 15px; }
+  .privacidade h3 { font-size: 17px; color: var(--grafite); margin: 26px 0 6px; }
+
+  footer { background: var(--escuro); color: #CFCFCB; font-size: 13px; padding: 32px 0; }
+  footer p { margin: 4px 0; }
+  footer a { color: #fff; }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Melo Consultoria Imobiliária, início">
+      <svg viewBox="0 0 100 80" aria-hidden="true"><polyline points="14,74 14,12 50,52" stroke="#38AAAB" stroke-width="16" fill="none"/><polyline points="50,52 86,12 86,74" stroke="#F4B6B0" stroke-width="16" fill="none"/></svg>
+      <span><b>MELO</b><small>CONSULTORIA IMOBILIÁRIA</small></span>
+    </a>
+    <nav>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#privacidade">Privacidade</a>
+      <a class="botao" href="https://wa.me/5516996452069">Fale no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="capa">
+    <div class="wrap">
+      <span class="selo">Imobiliária credenciada Caixa · CRECI 43105-J</span>
+      <h1>Seu imóvel da Caixa com desconto, <em>do primeiro clique ao registro.</em></h1>
+      <p>A Melo Consultoria acompanha você na escolha, na proposta, no financiamento e na documentação de imóveis vendidos pela Caixa. Atendimento 100% on-line e sem custo para o comprador.</p>
+      <div class="acoes">
+        <a class="botao" href="https://wa.me/5516996452069">Falar com a Melo no WhatsApp</a>
+        <a class="botao claro" href="https://whatsapp.com/channel/0029VbE8uvMFi8xjugZrUA0P">Ofertas do dia no nosso canal</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="rotulo">Como funciona</div>
+      <h2>Comprar um imóvel da Caixa, passo a passo</h2>
+      <p class="intro">Os imóveis retomados pela Caixa costumam sair abaixo do valor de mercado, mas cada modalidade de venda tem regras próprias. A gente explica cada etapa e cuida da parte burocrática com você.</p>
+      <div class="passos">
+        <div class="passo"><h3>Escolha do imóvel</h3><p>Indicamos imóveis no seu perfil e região, com desconto, condições de pagamento e situação de ocupação.</p></div>
+        <div class="passo"><h3>Levantamento de dívidas</h3><p>Verificamos condomínio, IPTU e a matrícula do imóvel antes da proposta, para você saber o custo real.</p></div>
+        <div class="passo"><h3>Proposta</h3><p>Ajudamos no cadastro da proposta no site da Caixa, seja venda direta, venda on-line, licitação ou leilão.</p></div>
+        <div class="passo"><h3>Financiamento e registro</h3><p>Acompanhamos pagamento à vista, financiamento, FGTS, assinatura do contrato e registro em cartório.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa">
+    <div class="wrap duas">
+      <div>
+        <div class="rotulo">Sem custo para você</div>
+        <h2>Nossos honorários são pagos pela Caixa</h2>
+        <p>Como imobiliária credenciada, a Melo é remunerada pela própria Caixa quando é indicada como intermediadora da venda. Para o comprador, a assessoria não tem custo.</p>
+        <ul class="lista">
+          <li>Atendimento on-line, de qualquer cidade.</li>
+          <li>Orientação sobre imóvel ocupado e desocupação.</li>
+          <li>Apoio para primeira compra e para investidores.</li>
+        </ul>
+      </div>
+      <div class="codigo">
+        <div class="rotulo">Na proposta, indique a Melo</div>
+        <p style="margin:0">No campo de busca de imobiliária do portal de imóveis da Caixa, digite:</p>
+        <div class="num">043105</div>
+        <p style="margin:0">e selecione <strong>Melo Consultoria</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quem-somos">
+    <div class="wrap">
+      <div class="rotulo">Quem somos</div>
+      <h2>Melo Consultoria Imobiliária</h2>
+      <p class="intro">Imobiliária credenciada pela Caixa Econômica Federal para intermediar a venda de imóveis, com atendimento on-line em todo o estado de São Paulo.</p>
+      <div class="dados">
+        <div class="dado"><span>Razão social</span><strong>Melo Engenharia e Soluções Imobiliárias Ltda</strong></div>
+        <div class="dado"><span>CNPJ</span><strong>47.331.643/0001-81</strong></div>
+        <div class="dado"><span>CRECI</span><strong>43105-J</strong></div>
+        <div class="dado"><span>Responsável técnico</span><strong>Ivaldo Melo · CRECI 136917-F</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato">
+    <div class="wrap">
+      <h2>Fale com a gente</h2>
+      <p class="intro">Tire dúvidas sobre um imóvel, peça um levantamento ou receba as ofertas do dia.</p>
+      <p>WhatsApp: <a href="https://wa.me/5516996452069">(16) 99645-2069</a><br>
+         E-mail: <a href="mailto:adm@meloimob.com.br">adm@meloimob.com.br</a><br>
+         Canal do WhatsApp: <a href="https://whatsapp.com/channel/0029VbE8uvMFi8xjugZrUA0P">Melo Consultoria · Imóveis com desconto</a></p>
+      <p style="margin-top:28px"><a class="botao claro" href="https://wa.me/5516996452069">Abrir conversa no WhatsApp</a></p>
+    </div>
+  </section>
+
+  <section id="privacidade" class="privacidade">
+    <div class="wrap">
+      <div class="rotulo">LGPD</div>
+      <h2>Política de privacidade</h2>
+      <p>Esta política explica como a Melo Engenharia e Soluções Imobiliárias Ltda (CNPJ 47.331.643/0001-81) trata os dados pessoais de quem entra em contato conosco, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
+      <h3>Quais dados coletamos</h3>
+      <p>Nome, telefone, e-mail, cidade e preferências de imóvel que você nos informa, e as mensagens trocadas conosco pelo WhatsApp e por e-mail.</p>
+      <h3>Para que usamos</h3>
+      <p>Para atender seus pedidos, apresentar imóveis compatíveis com o que você procura, acompanhar propostas e negociações e cumprir obrigações legais. Ofertas de imóveis por WhatsApp só são enviadas a quem autorizou, e você pode pedir para não receber mais a qualquer momento respondendo "SAIR".</p>
+      <h3>Com quem compartilhamos</h3>
+      <p>Com a Caixa Econômica Federal e cartórios, quando necessário para a compra; com fornecedores de tecnologia que nos ajudam a operar (hospedagem, banco de dados e plataformas de mensagens, incluindo a Meta/WhatsApp e seus parceiros oficiais). Não vendemos dados pessoais.</p>
+      <h3>Seus direitos</h3>
+      <p>Você pode pedir acesso, correção ou exclusão dos seus dados, ou revogar autorizações, pelo e-mail <a href="mailto:adm@meloimob.com.br">adm@meloimob.com.br</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Melo Consultoria Imobiliária</strong> · Melo Engenharia e Soluções Imobiliárias Ltda · CNPJ 47.331.643/0001-81 · CRECI 43105-J</p>
+    <p>WhatsApp (16) 99645-2069 · <a href="mailto:adm@meloimob.com.br">adm@meloimob.com.br</a></p>
+    <p>Este é o site da Melo Consultoria, imobiliária credenciada. Não é um site oficial da Caixa Econômica Federal; condições e valores dos imóveis são os publicados pela Caixa.</p>
+  </div>
+</footer>
+
+</body>
+</html>
