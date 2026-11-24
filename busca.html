@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buscar imóveis da Caixa · Melo Consultoria Imobiliária</title>
+<meta name="description" content="Busque imóveis da Caixa com desconto em São Paulo. Assessoria da Melo Consultoria, imobiliária credenciada, sem custo para o comprador. CRECI 43105-J.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpolyline points='14,74 14,12 50,52' stroke='%2338AAAB' stroke-width='16' fill='none'/%3E%3Cpolyline points='50,52 86,12 86,74' stroke='%23F4B6B0' stroke-width='16' fill='none'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --grafite: #50524D; --escuro: #3E3D38; --turquesa: #38AAAB; --turquesa-texto: #1D7374;
+    --rosa: #F4B6B0; --rosa-suave: #FCEBE8; --turquesa-suave: #E4F3F3; --linha: #E9E9E7; --fundo: #FFFFFF;
+    --verde: #2E7D32; --vermelho: #C62828;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--escuro); background: #FAFAF9; line-height: 1.5; }
+  a { color: var(--turquesa-texto); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  header.topo { position: sticky; top: 0; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--linha); z-index: 10; }
+  .topo .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--escuro); }
+  .marca svg { width: 38px; height: 30px; }
+  .marca b { display: block; font-size: 19px; letter-spacing: .08em; font-weight: 800; line-height: 1; }
+  .marca small { display: block; font-size: 10px; letter-spacing: .18em; font-weight: 600; color: var(--grafite); }
+  nav a { margin-left: 20px; text-decoration: none; color: var(--escuro); font-weight: 600; font-size: 14px; }
+  @media (max-width: 720px) { nav a:not(.botao) { display: none; } }
+
+  .botao { display: inline-block; background: var(--turquesa-texto); color: #fff !important; text-decoration: none; font-weight: 700; border: 0;
+    padding: 10px 18px; border-radius: 999px; font-size: 14px; cursor: pointer; font-family: inherit; white-space: nowrap; }
+  .botao.contorno { background: #fff; color: var(--turquesa-texto) !important; border: 1.5px solid var(--turquesa-texto); }
+  .botao:disabled { opacity: .5; cursor: default; }
+
+  .capa { background: var(--grafite); color: #fff; padding: 40px 0 34px; }
+  .capa h1 { margin: 0 0 6px; font-size: clamp(26px, 4vw, 38px); font-weight: 800; }
+  .capa p { margin: 0; color: #ECECEA; }
+
+  form.filtros { background: #fff; border: 1px solid var(--linha); border-radius: 16px; padding: 18px; margin: -22px 0 18px; position: relative;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; align-items: end; box-shadow: 0 6px 20px rgba(0,0,0,.05); }
+  label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--grafite); margin-bottom: 4px; }
+  input[type=text], input[type=number], input[type=tel], input[type=email], select, textarea {
+    width: 100%; font-family: inherit; font-size: 15px; padding: 10px 12px; border: 1px solid #D7D7D3; border-radius: 10px; background: #fff; color: var(--escuro); }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 14px; padding-bottom: 10px; }
+  .check input { width: 18px; height: 18px; }
+
+  .resumo { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; color: var(--grafite); font-size: 14px; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; }
+  .card { background: #fff; border: 1px solid var(--linha); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .foto { position: relative; aspect-ratio: 4 / 3; background: var(--turquesa-suave); display: flex; align-items: center; justify-content: center; }
+  .foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .foto .sem { color: var(--turquesa-texto); font-weight: 700; font-size: 13px; }
+  .selo-desc { position: absolute; top: 10px; left: 10px; background: var(--rosa); color: var(--escuro); font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 999px; }
+  .selo-dest { position: absolute; top: 10px; right: 10px; background: var(--turquesa-texto); color: #fff; font-weight: 700; font-size: 12px; padding: 4px 10px; border-radius: 999px; }
+  .info { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .local { font-weight: 800; font-size: 16px; color: var(--grafite); }
+  .det { font-size: 13px; color: #6B6B66; }
+  .preco { font-size: 22px; font-weight: 800; color: var(--escuro); }
+  .aval { font-size: 13px; color: #6B6B66; text-decoration: line-through; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 999px; background: #F2F2F0; }
+  .tag.sim { background: #E8F3E9; color: var(--verde); }
+  .tag.nao { background: #FBEAEA; color: var(--vermelho); }
+  .acoes { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
+  .acoes .botao { padding: 8px 14px; font-size: 13px; }
+  .mais { text-align: center; margin: 26px 0 10px; }
+  .aviso { background: var(--rosa-suave); border-radius: 12px; padding: 14px 16px; font-size: 14px; margin: 10px 0 30px; }
+  .vazio { text-align: center; padding: 40px 10px; color: #6B6B66; }
+
+  dialog { border: 0; border-radius: 18px; padding: 0; max-width: 460px; width: calc(100% - 32px); }
+  dialog::backdrop { background: rgba(40,40,36,.55); }
+  .modal { padding: 22px; }
+  .modal h3 { margin: 0 0 4px; color: var(--grafite); }
+  .modal .campo { margin-top: 12px; }
+  .lgpd { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; margin-top: 14px; background: var(--turquesa-suave); padding: 10px; border-radius: 10px; }
+  .lgpd input { margin-top: 3px; width: 18px; height: 18px; flex: none; }
+  .msg { font-size: 14px; margin-top: 10px; }
+  .msg.erro { color: var(--vermelho); }
+  .msg.ok { color: var(--verde); font-weight: 700; }
+
+  footer { background: var(--escuro); color: #CFCFCB; font-size: 13px; padding: 28px 0; margin-top: 30px; }
+  footer p { margin: 4px 0; }
+  footer a { color: #fff; }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="./" aria-label="Melo Consultoria Imobiliária, início">
+      <svg viewBox="0 0 100 80" aria-hidden="true"><polyline points="14,74 14,12 50,52" stroke="#38AAAB" stroke-width="16" fill="none"/><polyline points="50,52 86,12 86,74" stroke="#F4B6B0" stroke-width="16" fill="none"/></svg>
+      <span><b>MELO</b><small>CONSULTORIA IMOBILIÁRIA</small></span>
+    </a>
+    <nav>
+      <a href="./">Início</a>
+      <a href="./#como-funciona">Como funciona</a>
+      <a href="./#privacidade">Privacidade</a>
+      <a class="botao" href="https://wa.me/5516996452069">Fale no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<div class="capa">
+  <div class="wrap">
+    <h1>Buscar imóveis da Caixa</h1>
+    <p>Imóveis da lista da Caixa em São Paulo. Escolha um e fale com a Melo: a assessoria é sem custo para você.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <form class="filtros" id="filtros" autocomplete="off">
+    <div><label for="f-cidade">Cidade</label><input type="text" id="f-cidade" placeholder="Ex.: São Carlos"></div>
+    <div><label for="f-tipo">Tipo</label>
+      <select id="f-tipo"><option value="">Todos</option></select></div>
+    <div><label for="f-modalidade">Modalidade</label>
+      <select id="f-modalidade"><option value="">Todas</option></select></div>
+    <div><label for="f-preco">Preço até (R$)</label><input type="number" id="f-preco" min="0" step="10000" placeholder="Ex.: 300000"></div>
+    <div><label for="f-desconto">Desconto mínimo</label>
+      <select id="f-desconto"><option value="">Qualquer</option><option value="20">20% ou mais</option><option value="30">30% ou mais</option><option value="40">40% ou mais</option><option value="50">50% ou mais</option></select></div>
+    <div><label for="f-ordem">Ordenar por</label>
+      <select id="f-ordem">
+        <option value="destaque">Destaques e maior desconto</option>
+        <option value="desconto">Maior desconto</option>
+        <option value="menor">Menor preço</option>
+        <option value="maior">Maior preço</option>
+      </select></div>
+    <div class="check"><input type="checkbox" id="f-fin"><label for="f-fin" style="margin:0;text-transform:none;letter-spacing:0;font-size:14px;font-weight:600">Aceita financiamento</label></div>
+    <div><button class="botao" type="submit" style="width:100%">Buscar</button></div>
+  </form>
+
+  <div class="resumo"><span id="resumo">Carregando…</span><span>Valores e condições conforme a lista da Caixa.</span></div>
+  <div class="grade" id="grade"></div>
+  <div class="mais"><button class="botao contorno" id="mais" hidden>Ver mais imóveis</button></div>
+
+  <div class="aviso">
+    <strong>Importante:</strong> preço, desconto e condições são os publicados pela Caixa e podem mudar. Antes de fazer proposta,
+    a Melo confere a matrícula e as dívidas do imóvel com você. Na proposta, digite <strong>043105</strong> e selecione
+    <strong>Melo Consultoria</strong> como imobiliária.
+  </div>
+</main>
+
+<dialog id="dlg">
+  <form class="modal" id="form-interesse" method="dialog" novalidate>
+    <h3>Tenho interesse</h3>
+    <div class="det" id="dlg-imovel"></div>
+    <div class="campo"><label for="i-nome">Nome completo *</label><input type="text" id="i-nome" required></div>
+    <div class="campo"><label for="i-cel">Celular com DDD *</label><input type="tel" id="i-cel" placeholder="(16) 99999-9999"></div>
+    <div class="campo"><label for="i-email">E-mail</label><input type="email" id="i-email"></div>
+    <div class="campo"><label for="i-msg">Mensagem</label><textarea id="i-msg" rows="2" placeholder="Ex.: quero saber se aceita FGTS"></textarea></div>
+    <label class="lgpd" for="i-ok"><input type="checkbox" id="i-ok">
+      <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--escuro)">Autorizo a Melo Consultoria a usar meus dados para entrar em contato sobre este e outros imóveis, conforme a
+      <a href="./#privacidade" target="_blank">política de privacidade</a>. Posso cancelar a qualquer momento.</span></label>
+    <div class="msg" id="i-res" role="status"></div>
+    <div class="acoes" style="margin-top:14px">
+      <button class="botao" type="button" id="i-enviar">Enviar</button>
+      <button class="botao contorno" type="button" id="i-fechar">Fechar</button>
+    </div>
+  </form>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Melo Consultoria Imobiliária</strong> · Melo Engenharia e Soluções Imobiliárias Ltda · CNPJ 47.331.643/0001-81 · CRECI 43105-J</p>
+    <p>WhatsApp (16) 99645-2069 · <a href="mailto:adm@meloimob.com.br">adm@meloimob.com.br</a></p>
+    <p>Site da Melo Consultoria, imobiliária credenciada. Não é um site oficial da Caixa Econômica Federal.</p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script>
+(() => {
+  const TIPOS = { casa: 'Casa', apartamento: 'Apartamento', terreno: 'Terreno', comercial: 'Comercial', rural: 'Rural',
+    galpao: 'Galpão', predio: 'Prédio', sala: 'Sala', loja: 'Loja', outro: 'Outro' };
+  const MODALIDADES = { venda_direta_online: 'Venda Direta Online', venda_online: 'Venda Online',
+    licitacao_aberta: 'Licitação Aberta', leilao_sfi: 'Leilão SFI', outra: 'Outra' };
+  const POR_PAGINA = 24;
+  const VERSAO_CONSENTIMENTO = 'site-2026-11-24';
+  const cfg = window.MELO_SUPABASE || {};
+  const $ = (id) => document.getElementById(id);
+  const brl = (v) => v == null ? '' : Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const semAcento = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  for (const [k, v] of Object.entries(TIPOS)) $('f-tipo').insertAdjacentHTML('beforeend', `<option value="${k}">${v}</option>`);
+  for (const [k, v] of Object.entries(MODALIDADES)) $('f-modalidade').insertAdjacentHTML('beforeend', `<option value="${k}">${v}</option>`);
+
+  let pagina = 0, total = 0, carregando = false;
+
+  function consulta(offset) {
+    const p = new URLSearchParams();
+    p.set('select', 'numero_caixa,uf,cidade,bairro,tipo,descricao,area_privativa,area_terreno,quartos,vagas,preco,avaliacao,desconto,modalidade,aceita_financiamento,link_caixa,destaque');
+    const cidade = $('f-cidade').value.trim();
+    if (cidade) p.set('cidade', `ilike.*${semAcento(cidade).replace(/[*,()%_]/g, ' ').replace(/[aeioucAEIOUC]/g, '_')}*`);
+    if ($('f-tipo').value) p.set('tipo', `eq.${$('f-tipo').value}`);
+    if ($('f-modalidade').value) p.set('modalidade', `eq.${$('f-modalidade').value}`);
+    if ($('f-preco').value) p.set('preco', `lte.${Number($('f-preco').value)}`);
+    if ($('f-desconto').value) p.set('desconto', `gte.${Number($('f-desconto').value)}`);
+    if ($('f-fin').checked) p.set('aceita_financiamento', 'is.true');
+    const ordem = { destaque: 'destaque.desc,desconto.desc.nullslast', desconto: 'desconto.desc.nullslast',
+      menor: 'preco.asc.nullslast', maior: 'preco.desc.nullslast' }[$('f-ordem').value];
+    p.set('order', `${ordem},numero_caixa.asc`);
+    p.set('limit', POR_PAGINA); p.set('offset', offset);
+    return `${cfg.url}/rest/v1/vitrine?${p}`;
+  }
+
+  function cartao(i) {
+    const foto = `https://venda-imoveis.caixa.gov.br/fotos/F${encodeURIComponent(i.numero_caixa)}21.jpg`;
+    const area = i.area_privativa ? `${Number(i.area_privativa).toLocaleString('pt-BR')} m²` : (i.area_terreno ? `${Number(i.area_terreno).toLocaleString('pt-BR')} m² de terreno` : '');
+    const det = [TIPOS[i.tipo], area, i.quartos ? `${i.quartos} quarto${i.quartos > 1 ? 's' : ''}` : '', i.vagas ? `${i.vagas} vaga${i.vagas > 1 ? 's' : ''}` : ''].filter(Boolean).join(' · ');
+    const zap = `https://wa.me/5516996452069?text=${encodeURIComponent(`Olá! Tenho interesse no imóvel da Caixa nº ${i.numero_caixa} (${i.cidade}). Vi no site da Melo.`)}`;
+    const fin = i.aceita_financiamento == null ? '' : `<span class="tag ${i.aceita_financiamento ? 'sim' : 'nao'}">${i.aceita_financiamento ? 'Aceita financiamento' : 'Sem financiamento'}</span>`;
+    return `<article class="card">
+      <div class="foto"><img loading="lazy" src="${foto}" alt="Foto do imóvel ${esc(i.numero_caixa)}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'sem',textContent:'Foto no site da Caixa'}))">
+        ${i.desconto ? `<span class="selo-desc">-${Math.round(i.desconto)}%</span>` : ''}${i.destaque ? '<span class="selo-dest">Destaque</span>' : ''}</div>
+      <div class="info">
+        <div class="local">${esc(i.cidade)}${i.bairro ? ` · ${esc(i.bairro)}` : ''}</div>
+        <div class="det">${esc(det)}</div>
+        <div class="preco">${brl(i.preco)}</div>
+        ${i.avaliacao && i.preco && Number(i.avaliacao) > Number(i.preco) ? `<div class="aval">Avaliação ${brl(i.avaliacao)}</div>` : ''}
+        <div class="tags">${i.modalidade ? `<span class="tag">${esc(MODALIDADES[i.modalidade] || i.modalidade)}</span>` : ''}${fin}<span class="tag">Nº ${esc(i.numero_caixa)}</span></div>
+        <div class="acoes">
+          <button class="botao" type="button" data-interesse="${esc(i.numero_caixa)}" data-cidade="${esc(i.cidade)}">Tenho interesse</button>
+          <a class="botao contorno" href="${zap}" target="_blank" rel="noopener">WhatsApp</a>
+          ${i.link_caixa ? `<a class="botao contorno" href="${esc(i.link_caixa)}" target="_blank" rel="noopener">Ver na Caixa</a>` : ''}
+        </div>
+      </div></article>`;
+  }
+
+  async function buscar(nova) {
+    if (carregando) return;
+    if (!cfg.url || !cfg.chave) { $('resumo').textContent = 'Busca em configuração. Fale com a Melo pelo WhatsApp.'; return; }
+    carregando = true;
+    if (nova) { pagina = 0; $('grade').innerHTML = ''; $('resumo').textContent = 'Buscando…'; }
+    try {
+      const r = await fetch(consulta(pagina * POR_PAGINA), {
+        headers: { apikey: cfg.chave, Authorization: `Bearer ${cfg.chave}`, Prefer: 'count=exact' },
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const lista = await r.json();
+      const faixa = r.headers.get('content-range') || '';
+      total = Number(faixa.split('/')[1]) || (pagina * POR_PAGINA + lista.length);
+      $('grade').insertAdjacentHTML('beforeend', lista.map(cartao).join(''));
+      pagina++;
+      const vistos = Math.min(pagina * POR_PAGINA, total);
+      $('resumo').textContent = total ? `${total.toLocaleString('pt-BR')} imóve${total === 1 ? 'l' : 'is'} encontrado${total === 1 ? '' : 's'} · mostrando ${vistos.toLocaleString('pt-BR')}` : '';
+      if (!total) $('grade').innerHTML = '<div class="vazio">Nenhum imóvel com esses filtros. Tente outra cidade ou tire algum filtro.</div>';
+      $('mais').hidden = vistos >= total;
+    } catch (e) {
+      $('resumo').textContent = 'Não foi possível carregar os imóveis agora. Tente de novo em instantes ou fale com a Melo pelo WhatsApp.';
+    } finally { carregando = false; }
+  }
+
+  $('filtros').addEventListener('submit', (e) => { e.preventDefault(); buscar(true); });
+  $('mais').addEventListener('click', () => buscar(false));
+
+  // ---- Tenho interesse (vira cliente + oportunidade no CRM pela função registrar_interesse)
+  let imovelAtual = null;
+  $('grade').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-interesse]');
+    if (!b) return;
+    imovelAtual = b.dataset.interesse;
+    $('dlg-imovel').textContent = `Imóvel da Caixa nº ${imovelAtual} · ${b.dataset.cidade}`;
+    $('i-res').textContent = ''; $('i-res').className = 'msg'; $('i-enviar').disabled = false;
+    $('dlg').showModal();
+  });
+  $('i-fechar').addEventListener('click', () => $('dlg').close());
+  $('i-enviar').addEventListener('click', async () => {
+    const nome = $('i-nome').value.trim(), cel = $('i-cel').value.replace(/\D/g, ''), email = $('i-email').value.trim();
+    const res = $('i-res'); res.className = 'msg erro';
+    if (!nome) return void (res.textContent = 'Informe seu nome.');
+    if (cel.length < 10 || cel.length > 11) return void (res.textContent = 'Informe o celular com DDD.');
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return void (res.textContent = 'E-mail inválido.');
+    if (!$('i-ok').checked) return void (res.textContent = 'Para continuar, marque a autorização de contato.');
+    $('i-enviar').disabled = true; res.className = 'msg'; res.textContent = 'Enviando…';
+    try {
+      const r = await fetch(`${cfg.url}/rest/v1/rpc/registrar_interesse`, {
+        method: 'POST',
+        headers: { apikey: cfg.chave, Authorization: `Bearer ${cfg.chave}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p_nome: nome, p_telefone: cel, p_email: email || null, p_numero_caixa: imovelAtual,
+          p_versao_consentimento: VERSAO_CONSENTIMENTO, p_mensagem: $('i-msg').value.trim() || null, p_origem: 'site' }),
+      });
+      if (!r.ok) throw new Error(await r.text());
+      res.className = 'msg ok'; res.textContent = 'Recebemos seu interesse! A Melo vai falar com você pelo WhatsApp.';
+    } catch (e) {
+      $('i-enviar').disabled = false; res.className = 'msg erro';
+      res.textContent = 'Não foi possível enviar agora. Fale com a gente pelo WhatsApp (16) 99645-2069.';
+    }
+  });
+
+  // Cidade pela URL (ex.: busca.html?cidade=Araraquara)
+  const q = new URLSearchParams(location.search);
+  if (q.get('cidade')) $('f-cidade').value = q.get('cidade');
+  buscar(true);
+})();
+</script>
+</body>
+</html>
